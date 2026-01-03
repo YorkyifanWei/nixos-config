@@ -1,0 +1,54 @@
+theme = "zed_onedark"
+
+[editor]
+line-number = "relative" # 使用相对行号
+completion-replace = true # 补全功能始终替换整个单词，而不仅仅是光标前的部分
+trim-trailing-whitespace = true # 自动删除换行符前的空白字符
+
+# 自定义 helix 底部的状态行
+[editor.statusline]
+mode.normal = "Normal" # 各模式下左下角显示的名称
+mode.insert = "Insert"
+mode.select = "Select"
+left = [
+    "mode", # 当前编辑模式
+    "separator", # 分隔符（下同）
+    "spinner", # 用于指示 LSP 活动的进度旋转器
+    "file-name", # 打开的文件名称
+    "read-only-indicator", # 当文件为“只读”时显示 [readonly]
+    "file-modification-indicator" # 显示文件是否被修改，有未保存的更改时显示 [+]
+]
+center = [
+    "diagnostics" # 警告和错误的数量
+]
+right = [
+    "file-encoding", # 打开的文件的编码，当编码不是 UTF-8 时显示
+    "file-line-ending", # 文件换行符类型（CRLF 或 LF）
+    "separator",
+    "selections", # 主要选择索引，从当前活动选择中选取
+    "register", # 当前选中的寄存器
+    "position" # 光标位置
+]
+
+# 各模式下光标的形状
+[editor.cursor-shape]
+normal = "block"
+insert = "block"
+select = "block"
+
+# 忽略的文件类型
+[editor.file-picker]
+hidden = false # 显示隐藏文件
+parents = false # 不允许从父目录读取忽略文件
+
+# 垂直缩进引导线的显示选项
+[editor.indent-guides]
+render = true # 开启渲染缩进引导线
+character = "┊"
+
+# 按键绑定
+[keys.normal]
+y = "yank_to_clipboard" # 让 y 使用系统剪贴板
+p = "paste_clipboard_after" # 让 p 使用系统剪贴板
+[keys.select]
+y = "yank_to_clipboard" # 让 y 在 select 模式下也使用系统剪贴板

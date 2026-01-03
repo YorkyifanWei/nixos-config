@@ -1,0 +1,40 @@
+[mgr]
+# 文件排序方式
+sort_by = "natural"
+sort_sensitive = true
+sort_dir_first = true
+# 文件信息显示
+linemode = "size_and_mtime"
+# 显示隐藏文件
+show_hidden = true
+# 不显示符号链接文件指向的路径
+show_symlink = false
+
+# 配置在 [open] 中可用的打开器
+[opener]
+# 默认使用 helix 来编辑文件
+edit = [
+  { run = 'hx "$@"', block = true, desc = "Open with Helix" }
+]
+# 默认使用 Windows 中的默认软件来打开各种文件
+open = [
+  { run = 'explorer.exe "$(wslpath -w "$1")"', orphan = true, desc = "Open in Windows" }
+]
+
+# 配置 [open] 打开规则
+[open]
+rules = [
+  # # 文件夹
+  # { name = "*/", use = [ "edit", "open", "reveal" ] },
+  # 点文件
+  { name = ".*", use = "edit" },
+  # 文本文件
+  { mime = "text/*", use = "edit" },
+  # 某些特殊的文本格式
+  { mime = "application/json", use = "edit" },
+
+  # 图片
+  { mime = "image/*", use = "open" },
+  # PDF
+  { mime = "application/pdf", use = "open" },
+]

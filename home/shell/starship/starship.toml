@@ -1,0 +1,42 @@
+# 星等符号提示符配置
+# 使用 https://starship.rs/config/ 了解更多配置选项
+
+# 在提示符之间插入新行
+add_newline = true
+
+# 将提示符替换为自定义字符串 (覆盖符号)
+# [character]
+# success = "➜"
+# error = "✗"
+
+[package]
+# 默认情况下禁用包模块，因为它可能相对较慢
+disabled = true
+
+[directory]
+# 显示目录的完整路径
+truncation_length = 0
+# 不将主目录替换为 ~
+truncate_to_repo = false
+
+[git_branch]
+# 使用不同的符号
+symbol = "🌱 "
+# 仅显示分支名称，不显示前缀
+format = "on [$symbol$branch]($style) "
+
+[git_status]
+# 显示详细的 git 状态
+format = "[$all_status$ahead_behind]($style) "
+
+[nodejs]
+# Node.js 符号
+symbol = "⬢ "
+
+[rust]
+# Rust 符号
+symbol = "🦀 "
+
+[golang]
+# Go 符号
+symbol = "🐹 "
