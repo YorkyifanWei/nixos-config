@@ -54,12 +54,14 @@ def --env y [...args] {
 
 # 7zip 配置
 ## 用于处理 nushell 兼容性问题的函数（调用 bash 来处理）
-def --wrapped 7z [...args] {
-  # 关键点：
-  # - 用 bash -lc 走 bash 的命令解析/环境
-  # - 用 "$@" 原样传参，避免空格/特殊字符参数被弄乱
-  ^bash -lc 'command 7z "$@"' bash -- ...$args
-}
+#def --wrapped 7z [...args] {
+#  # 关键点：
+#  # - 用 bash -lc 走 bash 的命令解析/环境
+#  # - 用 "$@" 原样传参，避免空格/特殊字符参数被弄乱
+#  ^bash -lc 'command 7z "$@"' bash -- ...$args
+#}
+## 7z 别名设置（用于 _7zz）
+alias 7z = 7zz
 
 # Lazygit 配置
 alias lg = lazygit

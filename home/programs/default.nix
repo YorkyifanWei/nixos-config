@@ -60,6 +60,6 @@
     rustup        # Rust 工具链管理器
     go            # Go 编程语言
     fnm           # Node.js 版本管理器
-    claude-code   # Claude Code CLI 工具
+    uv            # Python 包管理和项目管理工具
   ];
 }

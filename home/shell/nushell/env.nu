@@ -50,3 +50,5 @@ $env.CLAUDE_CONFIG_DIR = ($env.XDG_DATA_HOME | path join "claude-code")
 $env.Path = ($env.Path | prepend $"($env.CARGO_HOME)/bin")
 ## Go 全局编译产物
 $env.Path = ($env.Path | prepend $"($env.GOPATH)/bin")
+## Node.js 工具
+$env.Path = ($env.Path | prepend $"($env.FNM_DIR)/aliases/default/bin")

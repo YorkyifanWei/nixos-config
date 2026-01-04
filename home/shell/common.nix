@@ -46,5 +46,7 @@
     "$CARGO_HOME/bin"
     # Go bin 目录
     "$GOPATH/bin"
+    # Fnm bin 目录
+    "$FNM_DIR/aliases/default/bin"
   ];
 }
