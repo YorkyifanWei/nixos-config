@@ -3,7 +3,7 @@
 
   inputs = {
     # 使用清华镜像的 Nixpkgs
-    nixpkgs.url = "git+https://mirrors.tuna.tsinghua.edu.cn/git/nixpkgs.git?ref=nixos-25.05&shallow=1";
+    nixpkgs.url = "git+https://mirrors.cernet.edu.cn/nixpkgs.git?ref=nixos-unstable&shallow=1";
 
     # NixOS-WSL 官方 flake (使用 githubfast 镜像加速)
     nixos-wsl.url = "git+https://githubfast.com/nix-community/NixOS-WSL.git?ref=release-25.05&shallow=1";

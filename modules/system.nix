@@ -9,7 +9,7 @@
 
     # 使用清华镜像源加速下载
     substituters = lib.mkForce [
-      "https://mirror.tuna.tsinghua.edu.cn/nix-channels/store"
+      "https://mirrors.cernet.edu.cn/nix-channels/store"
     ];
 
     # 自动优化存储，节约磁盘空间

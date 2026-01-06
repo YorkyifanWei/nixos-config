@@ -13,27 +13,27 @@
     XDG_CACHE_HOME = "$HOME/.cache";
     XDG_CONFIG_HOME = "$HOME/.config";
 
-    # Rust 配置 - 使用 XDG 数据目录
+    # Rust
     CARGO_HOME = "$XDG_DATA_HOME/cargo";
     RUSTUP_HOME = "$XDG_DATA_HOME/rustup";
 
-    # Go 配置 - 使用 XDG 数据目录
+    # Go
     GOPATH = "$XDG_DATA_HOME/go";
     GOMODCACHE = "$XDG_DATA_HOME/go/pkg/mod";
 
-    # fnm 配置 - Node.js 版本管理
+    # fnm（Node.js）
     FNM_DIR = "$XDG_DATA_HOME/fnm";
     FNM_NODE_DIST_MIRROR = "https://mirrors.ustc.edu.cn/node/";
 
-    # Starship 配置
+    # Starship
     STARSHIP_CONFIG = "$XDG_CONFIG_HOME/starship.toml";
 
-    # uv 配置
+    # uv
     UV_CACHE_DIR = "$XDG_CACHE_HOME/uv";
     UV_PYTHON_INSTALL_DIR = "$XDG_DATA_HOME/uv/python";
     UV_TOOL_DIR = "$XDG_DATA_HOME/uv/tools";
 
-    # Gradle 配置
+    # Gradle
     GRADLE_USER_HOME = "$XDG_DATA_HOME/gradle";
   };
 

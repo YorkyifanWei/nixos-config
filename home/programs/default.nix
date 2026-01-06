@@ -34,7 +34,7 @@
     _7zz          # 7zip 压缩工具
 
     # PDF 处理
-    poppler_utils # PDF 处理
+    poppler-utils # PDF 处理
 
     # 排版工具
     typst         # 现代排版系统
