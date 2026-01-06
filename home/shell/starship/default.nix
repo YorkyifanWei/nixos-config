@@ -7,6 +7,10 @@ let
   starshipPath = "${config.home.homeDirectory}/nixos-config/home/shell/starship";
 in
 {
+  home.packages = with pkgs; [
+    starship
+  ];
+
   # 使用软链接指向整个配置目录
   xdg.configFile."starship".source =
     config.lib.file.mkOutOfStoreSymlink starshipPath;

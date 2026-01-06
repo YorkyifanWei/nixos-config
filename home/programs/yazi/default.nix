@@ -7,6 +7,10 @@ let
   yaziPath = "${config.home.homeDirectory}/nixos-config/home/programs/yazi";
 in
 {
+  home.packages = with pkgs; [
+    yazi
+  ];
+
   # 使用软链接指向整个配置目录
   xdg.configFile."yazi".source =
     config.lib.file.mkOutOfStoreSymlink yaziPath;

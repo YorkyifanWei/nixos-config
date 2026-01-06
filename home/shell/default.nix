@@ -8,10 +8,4 @@
     ./nushell
     ./starship
   ];
-
-  # Shell 相关软件包
-  home.packages = with pkgs; [
-    nushell       # 现代 shell
-    starship      # 现代 prompt 工具
-  ];
 }

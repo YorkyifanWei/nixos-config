@@ -7,6 +7,10 @@ let
   zellijPath = "${config.home.homeDirectory}/nixos-config/home/programs/zellij";
 in
 {
+  home.packages = with pkgs; [
+    zellij
+  ];
+
   # 使用软链接指向整个配置目录
   xdg.configFile."zellij".source =
     config.lib.file.mkOutOfStoreSymlink zellijPath;

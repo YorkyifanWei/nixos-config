@@ -35,9 +35,6 @@
 
     # Gradle 配置
     GRADLE_USER_HOME = "$XDG_DATA_HOME/gradle";
-
-    # Claude Code 配置
-    CLAUDE_CONFIG_DIR = "$XDG_CONFIG_HOME/claude-code";
   };
 
   # PATH

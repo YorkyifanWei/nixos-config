@@ -8,6 +8,10 @@ let
   nushellPath = "${config.home.homeDirectory}/nixos-config/home/shell/nushell";
 in
 {
+  home.packages = with pkgs; [
+    nushell
+  ];
+
   # 使用软链接指向整个配置目录
   xdg.configFile."nushell".source =
     config.lib.file.mkOutOfStoreSymlink nushellPath;

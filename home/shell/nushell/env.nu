@@ -42,8 +42,6 @@ $env.GOMODCACHE = ($env.GOPATH | path join "pkg" "mod")
 $env.GRADLE_USER_HOME = ($env.XDG_DATA_HOME | path join "gradle")
 
 # 其他工具环境变量设置
-## Claude Code
-$env.CLAUDE_CONFIG_DIR = ($env.XDG_DATA_HOME | path join "claude-code")
 
 # Path 环境变量设置
 ## Cargo 全局编译产物

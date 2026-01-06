@@ -7,6 +7,10 @@ let
   helixPath = "${config.home.homeDirectory}/nixos-config/home/programs/helix";
 in
 {
+  home.packages = with pkgs; [
+    helix
+  ];
+
   # 使用软链接指向整个配置目录
   xdg.configFile."helix".source =
     config.lib.file.mkOutOfStoreSymlink helixPath;

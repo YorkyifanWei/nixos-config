@@ -6,7 +6,6 @@
   imports = [
     ./git.nix
     ./helix
-    ./lazygit
     ./yazi
     ./zellij
   ];
@@ -24,17 +23,7 @@
     zoxide        # 智能目录跳转
 
     # 版本控制
-    git           # 版本控制系统
     lazygit       # Git TUI 工具
-
-    # 编辑器
-    helix         # 模态编辑器
-
-    # 终端复用器
-    zellij        # 现代终端复用器
-
-    # 文件管理器
-    yazi          # 终端文件管理器
 
     # 多媒体和文件处理
     ffmpeg        # 多媒体处理
@@ -61,5 +50,6 @@
     go            # Go 编程语言
     fnm           # Node.js 版本管理器
     uv            # Python 包管理和项目管理工具
+    claude-code   # Claude AI 命令行工具
   ];
 }
