@@ -6,15 +6,23 @@
 {
   imports = [
     # 导入可复用的模块
-    ../../modules/system.nix
+    ../modules/system.nix
+    # 导入用户配置
+    ../users/yorkwei
   ];
 
-  # 系统级包(仅包含必要的系统工具)
-  # 注意: git 已经在 modules/nix/default.nix 中作为 flakes 必需品安装
-  environment.systemPackages = with pkgs; [
-    # 仅添加真正需要系统级安装的工具
-    # 大多数工具应该作为用户包安装(见 users/yorkwei/home-manager/default.nix)
-  ];
+  # ============================================
+  # 用户账户设置
+  # ============================================
+
+  # 创建用户
+  users.users.yorkwei = {
+    isNormalUser = true;
+    description = "York Wei";
+    extraGroups = [ "wheel" "networkmanager" ];  # wheel = sudo 权限
+    initialPassword = "changeme";  # 首次登录后请修改密码!
+    shell = pkgs.nushell;  # 设置默认 shell 为 nushell
+  };
 
   # 主机名
   networking.hostName = "wsl";

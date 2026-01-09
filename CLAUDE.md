@@ -15,15 +15,15 @@
 ## 关键目录结构
 
 - `hosts/` - 主机特定配置
-  - `wsl/` - WSL 系统配置
+  - `wsl.nix` - WSL 系统配置（包含用户账户创建）
 - `modules/` - 可复用的系统模块
-  - `nix/` - Nix 设置 (flakes, 镜像, 存储优化)
-  - `wsl/` - WSL 特定设置
-- `home/` - Home Manager 配置
-  - `default.nix` - 主入口: 用户账户 + Home Manager 配置
-  - `shell/` - Shell 相关配置 (nushell, starship, 环境变量)
-  - `fonts/` - 字体配置
-  - `programs/` - 程序配置
+  - `system.nix` - Nix 设置 (flakes, 镜像, 存储优化, nix-ld)
+- `users/` - 用户配置
+  - `yorkwei/` - yorkwei 用户的完整配置
+    - `default.nix` - Home Manager 集成配置
+    - `shell/` - Shell 相关配置 (nushell, starship, 环境变量)
+    - `fonts/` - 字体配置
+    - `programs/` - 程序配置
 
 ## 技术栈与核心约定
 
@@ -33,17 +33,17 @@
 - 配置文件使用目录级软链接，修改后无需重新构建
 
 ### 包管理原则
-- **系统包**: 放在 `hosts/wsl/default.nix` 的 `environment.systemPackages`
-- **用户包**: 按类别分散在 `home/` 各子模块的 `home.packages`
-  - Shell 相关: `home/shell/default.nix`
-  - 程序相关: `home/programs/default.nix`
-  - 字体: `home/fonts/default.nix`
+- **系统包**: 放在 `hosts/wsl.nix` 的 `environment.systemPackages`
+- **用户包**: 按类别分散在 `users/yorkwei/` 各子模块的 `home.packages`
+  - Shell 相关: `users/yorkwei/shell/default.nix`
+  - 程序相关: `users/yorkwei/programs/default.nix`
+  - 字体: `users/yorkwei/fonts/default.nix`
 
 ### 配置文件组织
 - 优先使用 `home.packages` 安装软件
-- 使用 `home.sessionVariables` 设置环境变量 (在 `home/shell/common.nix`)
+- 使用 `home.sessionVariables` 设置环境变量 (在 `users/yorkwei/shell/common.nix`)
 - 使用 `xdg.configFile` 链接配置文件
-- 配置文件直接存储在 `home/` 目录下的相应子目录中
+- 配置文件直接存储在 `users/yorkwei/` 目录下的相应子目录中
 - 使用 `config.lib.file.mkOutOfStoreSymlink` 创建目录级软链接
 - **不使用** `programs.<program>` 模块管理配置
 
@@ -126,14 +126,14 @@ just --list
 ### 添加新软件
 1. 确定是系统包还是用户包
 2. 在对应的 Nix 配置文件中添加软件包
-3. 如需配置文件，在 `home/programs/` 下创建对应目录并设置软链接
+3. 如需配置文件，在 `users/yorkwei/programs/` 下创建对应目录并设置软链接
 
 ## 环境变量管理策略
 
 项目采用 **XDG 规范** 管理开发工具的数据目录，避免在家目录生成大量隐藏文件夹。并且采用双重设置机制来保证兼容性。
 
-- Home Manager (`home/shell/common.nix`): 使用 `home.sessionVariables` 设置系统级环境变量
-- Nushell (`home/shell/nushell/env.nu`): 在 Nushell 启动时设置环境变量
+- Home Manager (`users/yorkwei/shell/common.nix`): 使用 `home.sessionVariables` 设置系统级环境变量
+- Nushell (`users/yorkwei/shell/nushell/env.nu`): 在 Nushell 启动时设置环境变量
 
 ## 特殊注意事项
 

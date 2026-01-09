@@ -5,7 +5,7 @@
 let
   # Nushell 配置目录的绝对路径
   # 假设配置仓库位于 ~/nixos-config
-  nushellPath = "${config.home.homeDirectory}/nixos-config/home/shell/nushell";
+  nushellPath = "${config.home.homeDirectory}/nixos-config/users/yorkwei/shell/nushell";
 in
 {
   home.packages = with pkgs; [

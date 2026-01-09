@@ -4,7 +4,7 @@
 { config, pkgs, ... }:
 let
   # Zellij 配置目录的绝对路径
-  zellijPath = "${config.home.homeDirectory}/nixos-config/home/programs/zellij";
+  zellijPath = "${config.home.homeDirectory}/nixos-config/users/yorkwei/programs/zellij";
 in
 {
   home.packages = with pkgs; [

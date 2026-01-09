@@ -1,6 +1,6 @@
 # NixOS 配置
 
-基于 Flakes 和 Home Manager 的个人 NixOS-WSL 配置管理。
+基于 Flakes 和 Home Manager 的个人 NixOS 配置管理。
 
 ## 系统信息
 
@@ -34,17 +34,17 @@
 ├── Justfile               # just 命令快捷方式
 │
 ├── hosts/                 # 主机特定配置
-│   └── wsl/               # WSL 系统配置
+│   └── wsl.nix            # WSL 系统配置（包含用户账户创建）
 │
 ├── modules/               # 可复用的系统模块
-│   ├── nix/               # Nix 设置 (flakes, 镜像, 存储优化)
-│   └── wsl/               # WSL 特定设置
+│   └── system.nix         # Nix 设置 (flakes, 镜像, 存储优化, nix-ld)
 │
-└── home/                  # Home Manager 配置
-    ├── default.nix        # 主入口: 用户账户 + Home Manager 配置
-    ├── shell/             # Shell 相关配置
-    ├── fonts/             # 字体配置
-    └── programs/          # 程序配置
+└── users/                 # 用户配置
+    └── yorkwei/           # yorkwei 用户的完整配置
+        ├── default.nix    # Home Manager 集成配置
+        ├── shell/         # Shell 相关配置
+        ├── fonts/         # 字体配置
+        └── programs/      # 程序配置
 ```
 
 ## 首次部署
@@ -73,13 +73,13 @@ passwd
 
 ```bash
 # 应用配置
-just switch
+just switch <host>
 
 # 详细调试模式
-just switch-verbose
+just switch-verbose <host>
 
 # 仅构建
-just build
+just build <host>
 
 # 更新所有依赖
 just update
@@ -118,30 +118,30 @@ just update-inpud <nixpkgs>
 ### 添加用户包
 
 Shell 相关工具:
-编辑 `home/shell/default.nix`
+编辑 `users/yorkwei/shell/default.nix`
 
 程序相关工具:
-编辑 `home/programs/default.nix`
+编辑 `users/yorkwei/programs/default.nix`
 
 字体:
-编辑 `home/fonts/default.nix`
+编辑 `users/yorkwei/fonts/default.nix`
 
 ### 添加程序配置文件
 
-1. 在 `home/programs/` 创建目录
+1. 在 `users/yorkwei/programs/` 创建目录
 2. 添加配置文件
 3. 创建 `default.nix` 设置目录软链接:
 ```nix
 { config, pkgs, ... }:
 let
-  configPath = "${config.home.homeDirectory}/nixos-config/home/programs/你的程序";
+  configPath = "${config.home.homeDirectory}/nixos-config/users/yorkwei/programs/你的程序";
 in
 {
   xdg.configFile."你的程序".source =
     config.lib.file.mkOutOfStoreSymlink configPath;
 }
 ```
-4. 在 `home/programs/default.nix` 导入该模块
+4. 在 `users/yorkwei/programs/default.nix` 导入该模块
 
 ## 存储管理
 

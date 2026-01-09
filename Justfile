@@ -4,16 +4,16 @@
 host := "wsl"
 
 # 系统操作
-switch:
+switch host:
   sudo nixos-rebuild switch --flake .#{{host}}
 
-switch-verbose:
+switch-verbose host:
   sudo nixos-rebuild switch --flake .#{{host}} --show-trace -L -v
 
-build:
+build host:
   sudo nixos-rebuild build --flake .#{{host}}
 
-test:
+test host:
   sudo nixos-rebuild test --flake .#{{host}}
 
 # Flakes 管理

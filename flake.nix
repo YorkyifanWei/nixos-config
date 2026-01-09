@@ -10,7 +10,7 @@
 
     # Home Manager
     home-manager = {
-      url = "git+https://githubfast.com/nix-community/home-manager.git?ref=release-25.05&shallow=1";
+      url = "git+https://githubfast.com/nix-community/home-manager.git?ref=release-25.11&shallow=1";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -32,12 +32,9 @@
         home-manager.nixosModules.home-manager
 
         # 主机特定配置
-        ./hosts/wsl/default.nix
+        ./hosts/wsl.nix
 
-        # 用户配置和 Home Manager 集成
-        ./home
-
-        # 允许非自由软件包(如 vista-fonts-chs)
+        # 允许非自由软件包
         { nixpkgs.config.allowUnfree = true; }
       ];
     };

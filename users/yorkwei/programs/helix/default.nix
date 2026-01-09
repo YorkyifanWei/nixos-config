@@ -4,7 +4,7 @@
 { config, pkgs, ... }:
 let
   # Helix 配置目录的绝对路径
-  helixPath = "${config.home.homeDirectory}/nixos-config/home/programs/helix";
+  helixPath = "${config.home.homeDirectory}/nixos-config/users/yorkwei/programs/helix";
 in
 {
   home.packages = with pkgs; [

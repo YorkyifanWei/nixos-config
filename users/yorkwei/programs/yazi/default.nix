@@ -4,7 +4,7 @@
 { config, pkgs, ... }:
 let
   # Yazi 配置目录的绝对路径
-  yaziPath = "${config.home.homeDirectory}/nixos-config/home/programs/yazi";
+  yaziPath = "${config.home.homeDirectory}/nixos-config/users/yorkwei/programs/yazi";
 in
 {
   home.packages = with pkgs; [

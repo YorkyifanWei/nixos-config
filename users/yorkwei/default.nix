@@ -1,28 +1,9 @@
 # Home Manager 主配置
 # yorkwei 用户的个人配置
-# 包含用户账户设置、软件包管理和配置文件
+# 包含软件包管理和配置文件
 
 { config, pkgs, ... }:
 {
-  # imports = [
-  #   ./shell
-  #   ./programs
-  #   ./fonts
-  # ];
-
-  # ============================================
-  # 用户账户设置
-  # ============================================
-
-  # 创建用户
-  users.users.yorkwei = {
-    isNormalUser = true;
-    description = "York Wei";
-    extraGroups = [ "wheel" "networkmanager" ];  # wheel = sudo 权限
-    initialPassword = "changeme";  # 首次登录后请修改密码!
-    shell = pkgs.nushell;  # 设置默认 shell 为 nushell
-  };
-
   # ============================================
   # Home Manager 配置
   # ============================================

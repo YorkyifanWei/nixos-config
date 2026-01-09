@@ -4,7 +4,7 @@
 { config, pkgs, ... }:
 let
   # Starship 配置目录的绝对路径
-  starshipPath = "${config.home.homeDirectory}/nixos-config/home/shell/starship";
+  starshipPath = "${config.home.homeDirectory}/nixos-config/users/yorkwei/shell/starship";
 in
 {
   home.packages = with pkgs; [
