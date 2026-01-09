@@ -18,6 +18,9 @@
 # them for future reference.
 
 # 全局环境变量
+## 编辑器
+$env.EDITOR = "hx"
+$env.VISUAL = "hx"
 ## 终端色彩标记
 $env.COLORTERM = "truecolor"
 ## XDG 目录设置
@@ -30,8 +33,6 @@ $env.XDG_CONFIG_HOME = ($env.HOME | path join ".config")
 $env.UV_CACHE_DIR = ($env.XDG_CACHE_HOME | path join "uv")
 $env.UV_PYTHON_INSTALL_DIR = ($env.XDG_DATA_HOME | path join "uv" "python")
 $env.UV_TOOL_DIR = ($env.XDG_DATA_HOME | path join "uv" "tools")
-## fnm
-$env.FNM_DIR = ($env.XDG_DATA_HOME | path join "fnm")
 ## rustup+cargo
 $env.RUSTUP_HOME = ($env.XDG_DATA_HOME | path join "rustup")
 $env.CARGO_HOME = ($env.XDG_DATA_HOME | path join "cargo")
@@ -42,11 +43,11 @@ $env.GOMODCACHE = ($env.GOPATH | path join "pkg" "mod")
 $env.GRADLE_USER_HOME = ($env.XDG_DATA_HOME | path join "gradle")
 
 # 其他工具环境变量设置
+## Starship
+$env.STARSHIP_CONFIG = ($env.XDG_CONFIG_HOME | path join "starship.toml")
 
 # Path 环境变量设置
 ## Cargo 全局编译产物
 $env.Path = ($env.Path | prepend $"($env.CARGO_HOME)/bin")
 ## Go 全局编译产物
 $env.Path = ($env.Path | prepend $"($env.GOPATH)/bin")
-## Node.js 工具
-$env.Path = ($env.Path | prepend $"($env.FNM_DIR)/aliases/default/bin")

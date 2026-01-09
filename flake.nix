@@ -1,5 +1,5 @@
 {
-  description = "NixOS-WSL 配置 with Home Manager";
+  description = "NixOS 配置 with Home Manager";
 
   inputs = {
     # 使用清华镜像的 Nixpkgs
@@ -16,7 +16,7 @@
   };
 
   outputs = inputs@{ self, nixpkgs, nixos-wsl, home-manager, ... }: {
-    # NixOS 系统配置
+    # NixOS-WSL 系统配置
     nixosConfigurations.wsl = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
 

@@ -27,6 +27,7 @@
 
     # 多媒体和文件处理
     ffmpeg        # 多媒体处理
+    pandoc        # 文档格式转换
     jq            # JSON 处理
     imagemagick   # 图片处理
 
@@ -36,10 +37,6 @@
     # PDF 处理
     poppler-utils # PDF 处理
 
-    # 排版工具
-    typst         # 现代排版系统
-    typstyle      # Typst 代码格式化工具
-
     # 剪贴板工具(WSL 可能需要)
     xclip         # X11 剪贴板
     wl-clipboard  # Wayland 剪贴板
@@ -48,8 +45,9 @@
     # 开发工具
     rustup        # Rust 工具链管理器
     go            # Go 编程语言
-    fnm           # Node.js 版本管理器
     uv            # Python 包管理和项目管理工具
+    devbox        # 开发环境管理工具
+    just          # 命令运行工具
     claude-code   # Claude AI 命令行工具
   ];
 }

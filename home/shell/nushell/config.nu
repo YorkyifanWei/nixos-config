@@ -28,8 +28,8 @@ alias ll  = ls -l
 alias lla = ls -al
 ## 设置 “用 Windows 文件资源管理器打开” 别名
 alias explorer = explorer.exe
-## 设置 “用 Typora 打开” 别名
-alias typora = typora.exe
+## 设置 `sudo nixos-rebuild switch --flake ~/nixos-config#wsl` 别名
+alias nixconfig = cd ~/nixos-config
 
 
 # Starship 配置
@@ -54,6 +54,7 @@ def --env y [...args] {
 
 # 7zip 配置
 ## 用于处理 nushell 兼容性问题的函数（调用 bash 来处理）
+## 适用于通过 7zip 官方 dnf 包安装的 7z
 #def --wrapped 7z [...args] {
 #  # 关键点：
 #  # - 用 bash -lc 走 bash 的命令解析/环境

@@ -15,7 +15,7 @@
 
     # 使用清华镜像源加速下载
     substituters = [
-      "https://mirror.tuna.tsinghua.edu.cn/nix-channels/store"
+      "https://mirror.cernet.edu.cn/nix-channels/store"
     ];
   };
 
@@ -24,7 +24,7 @@
     isNormalUser = true;
     description = "York Wei";
     extraGroups = [ "wheel" ];  # wheel = sudo 权限
-    initialPassword = "";  # 首次登录后需要立即设置密码!
+    initialPassword = "changeme";  # 首次登录后需要立即设置密码!
   };
 
   # 安装基础工具（用于首次部署）

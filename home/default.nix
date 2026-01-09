@@ -19,7 +19,7 @@
     isNormalUser = true;
     description = "York Wei";
     extraGroups = [ "wheel" "networkmanager" ];  # wheel = sudo 权限
-    initialPassword = "";  # 首次登录后请修改密码!
+    initialPassword = "changeme";  # 首次登录后请修改密码!
     shell = pkgs.nushell;  # 设置默认 shell 为 nushell
   };
 
